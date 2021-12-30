@@ -2,7 +2,7 @@
 
 --------------------------------
 
-Original tutorial taken from [![here](https://github.com/Phlos/WavePy).
+Original tutorial taken from [here](https://github.com/Phlos/WavePy).
 
 Changes made:
 - Jupyterlab version set to 2 in environment.yml -- this circumvents the need to adapt all widget functionalities for jupyterlab=3
