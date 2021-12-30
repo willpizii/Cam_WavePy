@@ -2,9 +2,12 @@
 
 --------------------------------
 
+Original tutorial taken from [![here](https://github.com/Phlos/WavePy).
+
 Changes made:
 - Jupyterlab version set to 2 in environment.yml -- this circumvents the need to adapt all widget functionalities for jupyterlab=3
-- shortened slightly 
+- fixed plotting issue that occured for source directions != (1,0)
+- shortened the tutorial 
 --------------------------------
 
 Basic seismic wave propagation code for teaching purposes (python based). With this code, you can:
