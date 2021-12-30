@@ -1,0 +1,9 @@
+name: wavepy2
+channels:
+  - conda-forge
+dependencies:
+  - python=3.6
+  - numba
+  - numpy
+  - matplotlib
+  - jupyterlab=2
