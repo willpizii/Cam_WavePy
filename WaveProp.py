@@ -15,7 +15,7 @@ from WavePyClasses import \
     Source, Receiver
 from utility_functions import find_nearest, compute_indices
 import wavefield_plotting_using_classes as wplot
-
+from IPython.display import display, clear_output
 
 def calc_absbound(
     grid: Grid, 
@@ -395,8 +395,9 @@ def run_waveprop(
     # initialise wavefield plotting
     if plot_wavefield:
 
+        wavefield_frames = []  # store snapshots
+
         print('plotting the wavefield')
-        plt.ion()
 
         if simulation_mode == 'forward':
             stf = sources[0].stf
@@ -409,19 +410,12 @@ def run_waveprop(
         src_amp = [np.linalg.norm((x,z)) for x,z in zip(stf.x, stf.z)]
         cmaks = prefac*np.max(src_amp)
 
-        fig, ax = plt.subplots(1, figsize=(10,5))
-        _, ax, fig = wplot.plot_field(
-            grid, vector_fields.vx, sources, receivers,
-            title=title,
-            cmaks=cmaks, ax=ax,draw=True)
-
     # initialise seismograms
     if simulation_mode == 'forward':
         for rec in receivers:
             rec.seismogram.x = []
             rec.seismogram.z = []
-
-    # The wave propagation loop
+    
     for it in range(nt):
 
         # store forward _displacement_ field
@@ -529,29 +523,10 @@ def run_waveprop(
                         plot_wavefield = 'vz'
            
                 if plot_wavefield == 'vx':
-                    field = vector_fields.vx
-
-                elif plot_wavefield == 'vz':
-                    field = vector_fields.vz
-
-
-                # make title
-                if simulation_mode == 'forward':
-                    title = '{} velocity field, t = {:.2f}'.format(plot_wavefield[1].upper(), it*dt)
-                elif simulation_mode == 'adjoint':
-                    title = '{} adjoint velocity field, t = {:.2f}'.format(plot_wavefield[1].upper(), it_fw*dt)
-    
-                ax.cla()
-                wplot.plot_field(
-                    grid, field, sources, receivers,
-                    title=title,
-                    cmaks=cmaks, ax=ax,draw=True, updating=False)
-
-                # img.set_array(vx.ravel())
-
-                fig.canvas.draw()
-                # fig.canvas.flush_events()
-                time.sleep(0.01)
+                    field = vector_fields.vx.copy()
+                else:
+                    field = vector_fields.vz.copy()
+                wavefield_frames.append(field)
 
         else:
             progress_report_time = int(nt / 4)
@@ -582,7 +557,10 @@ def run_waveprop(
     else:
         if return_last_wavefield:
             return receivers, last_wavefield
-        return receivers
+        if plot_wavefield:
+            return receivers, wavefield_frames
+        else:
+            return receivers
 
 # Functionality below is a bit ugly, all...
 def make_adjoint_source(
