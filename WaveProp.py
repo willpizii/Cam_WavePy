@@ -549,11 +549,18 @@ def run_waveprop(
 
     # return shizzle
     if simulation_mode=='forward' and store_forward_fields:
-        return receivers, fw_fields
+        if plot_wavefield:
+            return receivers, wavefield_frames, fw_fields
+        else:
+            return receivers, fw_fields
     elif simulation_mode == 'adjoint':
         if return_last_wavefield:
             return knls, last_wavefield
-        return knls
+        if plot_wavefield:
+            return knls, wavefield_frames
+        else:
+            return knls
+
     else:
         if return_last_wavefield:
             return receivers, last_wavefield
