@@ -20,7 +20,7 @@ A quick demo is given in the `Quick_demo_WavePy.ipynb` Jupyter notebook, while t
 
 You can launch this environment (and run the notebooks interactively) in a mybinder live environment:
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/deborahwehner/Cam_WavePy/HEAD)
+[![Binder](https://gesis.mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/deborahwehner/Cam_WavePy/HEAD)
 
 ## Visualisation functionality
 At each stage, visualisation functionality is included. 
