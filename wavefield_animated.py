@@ -1,7 +1,7 @@
 from IPython.display import HTML
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
-
+import numpy as np
 
 def animate_wavefield(frames, grid, sources=None, receivers=None, interval=50, figsize=(10,5), cmaks=None, cmaks_factor=None):
     """
