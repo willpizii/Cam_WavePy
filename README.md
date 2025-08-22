@@ -2,12 +2,11 @@
 
 --------------------------------
 
-Original tutorial taken from Nienke Blom, see [this link](https://github.com/Phlos/WavePy).
+Original tutorial taken from Nienke Blom, see [this link](https://github.com/Phlos/WavePy). Updated by [Deborah Wehner](https://github.com/deborahwehner/Cam_WavePy) for use in Cambridge practicals, and updated again here to ensure animated plots work properly.
 
 Changes made:
-- Jupyterlab version set to 2 in environment.yml -- this circumvents the need to adapt all widget functionalities for jupyterlab=3
-- fixed plotting issue that occured for source directions != (1,0)
-- shortened the tutorial 
+- Plotting code rewritten - ensuring that animated plots work properly in updated binder environments
+- Small changes to instructions to reflect this
 --------------------------------
 
 Basic seismic wave propagation code for teaching purposes (python based). With this code, you can:
