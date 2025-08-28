@@ -3,8 +3,8 @@ import matplotlib.pyplot as plt
 
 from typing import Optional, Union, List
 
-from FresnelZone import Fresnel_width_from_velocity_field_and_stf as Fresnel_width
-from FresnelZone import plot_Fresnel
+from .FresnelZone import Fresnel_width_from_velocity_field_and_stf as Fresnel_width
+from .FresnelZone import plot_Fresnel
 
 # import wavefield_plotting_using_classes as wplot
 

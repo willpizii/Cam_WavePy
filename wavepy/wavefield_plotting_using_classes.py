@@ -6,9 +6,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 import copy
 
-from utility_functions import find_nearest
+from .utility_functions import find_nearest
 
-from WavePyClasses import Grid, Source, Receiver
+from .WavePyClasses import Grid, Source, Receiver
 
 def plot_field(
     grid: Grid, 

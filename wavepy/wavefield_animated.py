@@ -62,6 +62,8 @@ def animate_wavefield(frames, grid, sources=None, receivers=None, interval=50, f
             rec_x.append(loc[0])
             rec_z.append(loc[1])
     receiver_scatter = ax.scatter(rec_x, rec_z, c='k', marker='^')
+
+    ax.set(xlabel="horizontal distance / km",ylabel="depth / km")
     
     def update(it):
         im.set_data(frames[it])

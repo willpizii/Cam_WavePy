@@ -10,11 +10,11 @@ from numba import jit
 
 import copy
 
-from WavePyClasses import \
+from .WavePyClasses import \
     Grid, Model, Kernel, WavePropField, VectorThing, \
     Source, Receiver
-from utility_functions import find_nearest, compute_indices
-import wavefield_plotting_using_classes as wplot
+from .utility_functions import find_nearest, compute_indices
+from . import wavefield_plotting_using_classes as wplot
 from IPython.display import display, clear_output
 
 def calc_absbound(
