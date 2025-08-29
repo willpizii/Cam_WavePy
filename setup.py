@@ -1,10 +1,10 @@
 from setuptools import setup, find_packages
 
 setup(
-	name='wavepy',
-	version='0.0.1',
+	name='swavepy',
+	version='0.0.2',
 	description="Modular version of WavePy",
-	author="Will Pizii",
+	author="Nienke Blom, Will Pizii",
 	packages=find_packages(),
 	install_requires=[
 		'numpy',

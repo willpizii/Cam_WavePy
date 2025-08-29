@@ -1,12 +1,21 @@
-# Cam_WavePy
+# SWavePy - Seismic Wave Propagation Simulation
+
+## Usage
+
+Installing with pip
+
+```python
+pip install swavepy
+```
 
 --------------------------------
 
-Original tutorial taken from Nienke Blom, see [this link](https://github.com/Phlos/WavePy). Updated by [Deborah Wehner](https://github.com/deborahwehner/Cam_WavePy) for use in Cambridge practicals, and updated again here to ensure animated plots work properly.
+Original tutorial taken from Nienke Blom, see [this link](https://github.com/Phlos/WavePy). Updated by [Deborah Wehner](https://github.com/deborahwehner/Cam_WavePy) for use in Cambridge practicals, and updated again here to ensure animated plots work properly, and compiled into a pip-installable module.
 
 Changes made:
 - Plotting code rewritten - ensuring that animated plots work properly in updated binder environments
 - Small changes to instructions to reflect this
+- Branch version which turns the repo into a pip package, for use on colab
 --------------------------------
 
 Basic seismic wave propagation code for teaching purposes (python based). With this code, you can:
@@ -15,24 +24,8 @@ Basic seismic wave propagation code for teaching purposes (python based). With t
 * select data windows
 * compute sensitivity kernels
 
-A quick demo is given in the `Quick_demo_WavePy.ipynb` Jupyter notebook, while there is also a more elaborate wave propagation practical notebook `Wave_propagation_practical.ipynb`. 
-
-You can launch this environment (and run the notebooks interactively) in a mybinder live environment:
-
-[![Binder](https://gesis.mybinder.org/badge_logo.svg)](https://gesis.mybinder.org/v2/gh/willpizii/Cam_WavePy/HEAD)
-
 ## Visualisation functionality
 At each stage, visualisation functionality is included. 
-
-### Visualising wave propagation
-The wave propagation can be visualised on-the-go by setting `plot_wavefield` to `True` (and including a suitable value for `plot_wavefield_every`):
-```python
-receivers_out = waveprop.run_waveprop(
-    src, rec, model, absorbing_boundaries, 
-    plot_wavefield=True, 
-    plot_wavefield_every=40, # every x timesteps
-    verbose=True)
-```
 
 ### Visualising seismograms
 If (after a forward simulation) a seismogram has been attached to a receiver, this can be visualised with:
@@ -42,7 +35,7 @@ rec.plot_seismogram()
 
 ### Visualising window picks
 Equally, window picks (and the resulting adjoint sources) can be visualised with
-```pytho
+```python
 pick = {}
 pick['component'] = ['x']   # 'x' or 'z'
 pick['times'] = [3.5, 7.5]  # seconds
